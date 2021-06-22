@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -127,6 +128,46 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assetsAdmin\css\bootstrap-social.css" />
+    <Content Include="Content\assetsAdmin\css\bootstrap-theme.min.css" />
+    <Content Include="Content\assetsAdmin\css\bootstrap.min.css" />
+    <Content Include="Content\assetsAdmin\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Content\assetsAdmin\css\dataTables\dataTables.responsive.css" />
+    <Content Include="Content\assetsAdmin\css\font-awesome.min.css" />
+    <Content Include="Content\assetsAdmin\css\metisMenu.min.css" />
+    <Content Include="Content\assetsAdmin\css\morris.css" />
+    <Content Include="Content\assetsAdmin\css\startmin.css" />
+    <Content Include="Content\assetsAdmin\css\timeline.css" />
+    <Content Include="Content\assetsAdmin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assetsAdmin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assetsAdmin\js\bootstrap.min.js" />
+    <Content Include="Content\assetsAdmin\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\assetsAdmin\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Content\assetsAdmin\js\flot-data.js" />
+    <Content Include="Content\assetsAdmin\js\flot\excanvas.min.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.colorhelpers.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.canvas.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.categories.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.image.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.navigate.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.pie.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.resize.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.selection.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.stack.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.threshold.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.time.js" />
+    <Content Include="Content\assetsAdmin\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\assetsAdmin\js\jquery.min.js" />
+    <Content Include="Content\assetsAdmin\js\metisMenu.min.js" />
+    <Content Include="Content\assetsAdmin\js\morris-data.js" />
+    <Content Include="Content\assetsAdmin\js\morris.min.js" />
+    <Content Include="Content\assetsAdmin\js\raphael.min.js" />
+    <Content Include="Content\assetsAdmin\js\startmin.js" />
     <Content Include="Content\assets\css\bootstrap-responsive.css" />
     <Content Include="Content\assets\css\bootstrap-responsive.min.css" />
     <Content Include="Content\assets\css\bootstrap.css" />
@@ -357,6 +398,15 @@
     <Content Include="Content\assets\font-awesome\scss\_mixins.scss" />
     <Content Include="Content\assets\font-awesome\scss\_path.scss" />
     <Content Include="Content\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\assetsAdmin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\assetsAdmin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\assetsAdmin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\assetsAdmin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\assetsAdmin\fonts\FontAwesome.otf" />
+    <Content Include="Content\assetsAdmin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assetsAdmin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assetsAdmin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assetsAdmin\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -382,6 +432,8 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
