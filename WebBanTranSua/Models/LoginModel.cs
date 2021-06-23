@@ -8,11 +8,13 @@ namespace WebBanTranSua.Models
 {
     public class LoginModel
     {
-        [Required]
         private string email;
         private string matKhau;
 
+        [Required(ErrorMessage ="Email không được để trống!")]
         public string Email { get => email; set => email = value; }
+
+        [Required(ErrorMessage = "Mật khẩu không được để trống!")]
         public string MatKhau { get => matKhau; set => matKhau = value; }
     }
 }

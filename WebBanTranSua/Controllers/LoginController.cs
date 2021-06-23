@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebBanTranSua.Code;
+using WebBanTranSua.Common;
 using WebBanTranSua.Models;
 using WebBanTranSua.Models.DAO;
 using WebBanTranSua.Models.EF;
@@ -23,17 +24,28 @@ namespace WebBanTranSua.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginModel login)
         {
-            var result = new TaiKhoanDAO().login(login.Email, login.MatKhau);
-            if(result && ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                SessionHelper.setSession(new TaiKhoanSession() { email = login.Email });
-                return RedirectToAction("Index", "Admin");
+                var dao = new TaiKhoanDAO();
+                var result = dao.login(login.Email, Encrypt.MD5Hash(login.MatKhau));
+                if (result && ModelState.IsValid)
+                {
+                    //SessionHelper.setSession(new TaiKhoanSession() { email = login.Email });
+                    var user = dao.getByEmail(login.Email);
+                    var userSession = new UserLogin();
+                    userSession.Email = user.email;
+                    Session.Add(CommenConstants.USER_SESSION, userSession);
+
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng!!!");
+                }
+                //return View(login);
             }
-            else
-            {
-                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng!!!");
-            }
-            return View(login);
+            
+            return View("Index");
         }
 
         public ActionResult logout()

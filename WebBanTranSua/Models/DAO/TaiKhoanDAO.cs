@@ -22,6 +22,11 @@ namespace WebBanTranSua.Models.DAO
             return enity.email;
         }
 
+        public TaiKhoan getByEmail(string email)
+        {
+            return db.TaiKhoans.SingleOrDefault(x => x.email == email);
+        }
+
         public bool login(string email, string password)
         {
             object[] sqlParam =
@@ -30,9 +35,17 @@ namespace WebBanTranSua.Models.DAO
                 new SqlParameter("@matkhau", password)
             };
 
-            var result = db.Database.SqlQuery<bool>("login @email, @matkhau", sqlParam).SingleOrDefault();
+            //var result = db.Database.SqlQuery<bool>("login @email, @matkhau", sqlParam).SingleOrDefault();
 
-            return result;
+            var result = db.TaiKhoans.Count(x => x.email == email && x.matKhau == password);
+            if(result >0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
