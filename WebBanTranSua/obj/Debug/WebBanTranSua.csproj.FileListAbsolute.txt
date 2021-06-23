@@ -77,3 +77,7 @@ E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\obj\Debug\WebBanTranSua.csproj.CoreCom
 E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\obj\Debug\WebBanTranSua.csproj.CopyComplete
 E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\obj\Debug\WebBanTranSua.dll
 E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\obj\Debug\WebBanTranSua.pdb
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.dll
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.SqlServer.dll
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.xml
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.SqlServer.xml
