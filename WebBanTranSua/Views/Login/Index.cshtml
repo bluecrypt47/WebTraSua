@@ -44,7 +44,7 @@
                         <h3 class="panel-title">Đăng nhập</h3>
                     </div>
                     <div class="panel-body">
-                        @using (Html.BeginForm())
+                        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(true)

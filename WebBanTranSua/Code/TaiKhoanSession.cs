@@ -8,6 +8,7 @@ namespace WebBanTranSua.Code
     [Serializable]
     public class TaiKhoanSession
     {
+        public long userID { get; set; }
         public string email { get; set; }
     }
 }

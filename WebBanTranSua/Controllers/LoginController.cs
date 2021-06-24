@@ -22,18 +22,19 @@ namespace WebBanTranSua.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(LoginModel login)
+        public ActionResult Login(LoginModel login)
         {
             if(ModelState.IsValid)
             {
                 var dao = new TaiKhoanDAO();
-                var result = dao.login(login.Email, Encrypt.MD5Hash(login.MatKhau));
+                var result = dao.Login(login.Email, Encrypt.MD5Hash(login.MatKhau));
                 if (result && ModelState.IsValid)
                 {
                     //SessionHelper.setSession(new TaiKhoanSession() { email = login.Email });
                     var user = dao.getByEmail(login.Email);
                     var userSession = new UserLogin();
                     userSession.Email = user.email;
+                    userSession.Id = user.id;
                     Session.Add(CommenConstants.USER_SESSION, userSession);
 
                     return RedirectToAction("Index", "Admin");
@@ -48,7 +49,7 @@ namespace WebBanTranSua.Controllers
             return View("Index");
         }
 
-        public ActionResult logout()
+        public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Trang quản trị</title>
+    <title>Trang chủ</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="~/Content/assetsAdmin/css/bootstrap.min.css" rel="stylesheet">
@@ -15,14 +15,8 @@
     <!-- MetisMenu CSS -->
     <link href="~/Content/assetsAdmin/css/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Timeline CSS -->
-    <link href="~/Content/assetsAdmin/css/timeline.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="~/Content/assetsAdmin/css/startmin.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="~/Content/assetsAdmin/css/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="~/Content/assetsAdmin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -123,8 +117,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            @Html.ActionLink("Đăng xuất", "logout", "Login")
-                            @*<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>*@
+                            @Html.ActionLink(" Đăng xuất", "Logout", "Login")
                         </li>
                     </ul>
                 </li>
@@ -146,7 +139,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -220,11 +213,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">Blank Page</a>
+                                    <a class="active" href="blank.html">Blank Page</a>
                                 </li>
                                 <li>
                                     <a href="login.html">Login Page</a>
@@ -234,10 +227,25 @@
                         </li>
                     </ul>
                 </div>
+                <!-- /.sidebar-collapse -->
             </div>
+            <!-- /.navbar-static-side -->
         </nav>
 
-        @RenderBody()
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">@RenderSection("header", required: true)</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                @RenderBody()
+            </div>
+            <!-- /.container-fluid -->
+        </div>
         <!-- /#page-wrapper -->
 
     </div>
@@ -250,11 +258,6 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="~/Content/assetsAdmin/js/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="~/Content/assetsAdmin/js/raphael.min.js"></script>
-    <script src="~/Content/assetsAdmin/js/morris.min.js"></script>
-    <script src="~/Content/assetsAdmin/js/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="~/Content/assetsAdmin/js/startmin.js"></script>

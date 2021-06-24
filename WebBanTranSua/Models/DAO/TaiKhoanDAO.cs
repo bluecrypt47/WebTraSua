@@ -15,11 +15,11 @@ namespace WebBanTranSua.Models.DAO
             db = new WTSDBContext();
         }
 
-        public string insert(TaiKhoan enity)
+        public long insert(TaiKhoan enity)
         {
             db.TaiKhoans.Add(enity);
             db.SaveChanges();
-            return enity.email;
+            return enity.id;
         }
 
         public TaiKhoan getByEmail(string email)
@@ -27,7 +27,7 @@ namespace WebBanTranSua.Models.DAO
             return db.TaiKhoans.SingleOrDefault(x => x.email == email);
         }
 
-        public bool login(string email, string password)
+        public bool Login(string email, string password)
         {
             object[] sqlParam =
             {

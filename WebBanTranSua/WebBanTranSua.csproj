@@ -137,6 +137,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,7 +148,6 @@
     <Compile Include="Models\EF\LoaiTaiKhoan.cs" />
     <Compile Include="Models\EF\SanPham.cs" />
     <Compile Include="Models\EF\Slide.cs" />
-    <Compile Include="Models\EF\sysdiagram.cs" />
     <Compile Include="Models\EF\TaiKhoan.cs" />
     <Compile Include="Models\EF\WTSDBContext.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -506,6 +506,8 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-namespace WebBanTranSua.Models.EF
+﻿namespace WebBanTranSua.Models.EF
 {
     using System;
     using System.Collections.Generic;
@@ -19,10 +19,13 @@ namespace WebBanTranSua.Models.EF
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long maHoaDon { get; set; }
 
+        [Display(Name = "Số lượng")]
         public int? soLuong { get; set; }
 
+        [Display(Name = "Giá bán")]
         public double? giaBan { get; set; }
 
+        [Display(Name = "Thành tiền")]
         public double? thanhTien { get; set; }
 
         public virtual HoaDon HoaDon { get; set; }
