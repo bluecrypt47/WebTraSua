@@ -13,9 +13,10 @@
 
         [Required(ErrorMessage = "Email không được để trống!")]
         [StringLength(100)]
-        [Display(Name ="Email")]
+        [Display(Name = "Email")]
         public string email { get; set; }
 
+        [Display(Name = "Mã loại")]
         public bool maLoaiTaiKhoan { get; set; }
 
         [Required(ErrorMessage = "Mật khẩu không được để trống!")]

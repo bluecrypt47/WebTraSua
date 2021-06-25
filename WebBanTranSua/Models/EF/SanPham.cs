@@ -16,8 +16,10 @@
         }
 
         [Key]
+        [Display(Name = "Mã sản phẩm")]
         public long maSanPham { get; set; }
 
+        [Display(Name = "Mã loại")]
         public long maLoaiSanPham { get; set; }
 
         [StringLength(100)]
@@ -31,21 +33,21 @@
         [Display(Name = "Ngày tạo")]
         public DateTime? ngayTao { get; set; }
 
-        [Display(Name = "Ngày cập nhật")]
+        [Display(Name = "Ngày cập nhập")]
         public DateTime? ngayCapNhat { get; set; }
 
         [Display(Name = "Giá bán")]
         public double? giaBan { get; set; }
 
-        [Display(Name = "Đơn vị tính")]
         [StringLength(100)]
+        [Display(Name = "Đơn vị tính")]
         public string dvt { get; set; }
 
         [Display(Name = "Giảm giá")]
         public double? giamGia { get; set; }
 
         [StringLength(1000)]
-        [Display(Name = "Giới thiệu sản phẩm")]
+        [Display(Name = "Giới thiệu")]
         public string gioiThieuSanPham { get; set; }
 
         [Display(Name = "Sản phẩm mới")]

@@ -16,6 +16,7 @@
         }
 
         [Key]
+        [Display(Name = "Mã hóa đơn")]
         public long maHoaDon { get; set; }
 
         [Required]

@@ -81,3 +81,7 @@ E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.dll
 E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.SqlServer.dll
 E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.xml
 E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\EntityFramework.SqlServer.xml
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\PagedList.dll
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\PagedList.Mvc.dll
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\PagedList.xml
+E:\3\LTW\WBTS\WebBanTranSua\WebBanTranSua\bin\PagedList.Mvc.xml

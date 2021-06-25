@@ -16,6 +16,7 @@
         }
 
         [Key]
+        [Display(Name = "Mã loại")]
         public bool maLoaiTaiKhoan { get; set; }
 
         [StringLength(100)]

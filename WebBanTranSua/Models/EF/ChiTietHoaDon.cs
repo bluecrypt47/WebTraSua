@@ -12,11 +12,13 @@
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Mã sản phẩm")]
         public long maSanPham { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Mã hóa đơn")]
         public long maHoaDon { get; set; }
 
         [Display(Name = "Số lượng")]

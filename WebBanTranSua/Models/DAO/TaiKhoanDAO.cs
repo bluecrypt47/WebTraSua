@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using WebBanTranSua.Models.EF;
+using PagedList;
 
 namespace WebBanTranSua.Models.DAO
 {
@@ -22,9 +23,44 @@ namespace WebBanTranSua.Models.DAO
             return enity.id;
         }
 
+        public bool edit(TaiKhoan taiKhoan)
+        {
+            try
+            {
+                var user = db.TaiKhoans.Find(taiKhoan.id);
+
+                user.email = taiKhoan.email;
+                if(!string.IsNullOrEmpty(taiKhoan.matKhau))
+                {
+                    user.matKhau = taiKhoan.matKhau;
+                }
+                user.tenNguoiDung = taiKhoan.tenNguoiDung;
+                user.diaChi = taiKhoan.diaChi;
+                user.sdt = taiKhoan.sdt;
+
+                db.SaveChanges();
+
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public IEnumerable<TaiKhoan> ListAllPaging(int page, int pageSize)
+        {
+            return db.TaiKhoans.OrderByDescending(x => x.id).ToPagedList(page, pageSize);
+        }
+
         public TaiKhoan getByEmail(string email)
         {
             return db.TaiKhoans.SingleOrDefault(x => x.email == email);
+        }
+
+        public TaiKhoan GetByID(long id)
+        {
+            return db.TaiKhoans.Find(id);
         }
 
         public bool Login(string email, string password)

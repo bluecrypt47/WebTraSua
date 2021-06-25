@@ -10,6 +10,7 @@
     public partial class Slide
     {
         [Key]
+        [Display(Name = "Mã slide")]
         public int maSlide { get; set; }
 
         [StringLength(1000)]
@@ -17,7 +18,7 @@
         public string hinhAnh { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Tên sản phẩm")]
+        [Display(Name = "Tên")]
         public string name { get; set; }
 
         [StringLength(100)]
