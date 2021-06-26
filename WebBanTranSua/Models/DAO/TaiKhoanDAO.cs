@@ -29,14 +29,15 @@ namespace WebBanTranSua.Models.DAO
             {
                 var user = db.TaiKhoans.Find(taiKhoan.id);
 
-                user.email = taiKhoan.email;
-                if(!string.IsNullOrEmpty(taiKhoan.matKhau))
-                {
-                    user.matKhau = taiKhoan.matKhau;
-                }
+                //user.email = taiKhoan.email;
+                //if(!string.IsNullOrEmpty(taiKhoan.matKhau))
+                //{
+                //    user.matKhau = taiKhoan.matKhau;
+                //}
                 user.tenNguoiDung = taiKhoan.tenNguoiDung;
                 user.diaChi = taiKhoan.diaChi;
                 user.sdt = taiKhoan.sdt;
+                user.ngayCapNhat = DateTime.Now;
 
                 db.SaveChanges();
 

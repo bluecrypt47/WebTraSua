@@ -16,7 +16,7 @@
         [Display(Name = "Email")]
         public string email { get; set; }
 
-        [Display(Name = "Mã loại")]
+        [Display(Name = "Tài khoản Quản trị")]
         public bool maLoaiTaiKhoan { get; set; }
 
         [Required(ErrorMessage = "Mật khẩu không được để trống!")]
@@ -36,6 +36,12 @@
         [StringLength(11)]
         [Display(Name = "Số điện thoại")]
         public string sdt { get; set; }
+
+        [Display(Name = "Ngày tạo")]
+        public DateTime? ngayTao { get; set; }
+
+        [Display(Name = "Ngày cập nhập")]
+        public DateTime? ngayCapNhat { get; set; }
 
         public virtual LoaiTaiKhoan LoaiTaiKhoan { get; set; }
     }

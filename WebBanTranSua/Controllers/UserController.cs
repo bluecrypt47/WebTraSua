@@ -20,7 +20,6 @@ namespace WebBanTranSua.Controllers
             return View(model);
         }
 
-        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -49,7 +48,6 @@ namespace WebBanTranSua.Controllers
             return View("Index");
         }
 
-        [HttpGet]
         public ActionResult Edit(long id)
         {
             var user = new TaiKhoanDAO().GetByID(id);
@@ -63,11 +61,11 @@ namespace WebBanTranSua.Controllers
             {
                 var dao = new TaiKhoanDAO();
 
-                if(!string.IsNullOrEmpty(user.matKhau))
-                {
-                    var encryptPass = Encrypt.MD5Hash(user.matKhau);
-                    user.matKhau = encryptPass;
-                }
+                //if(!string.IsNullOrEmpty(user.matKhau))
+                //{
+                //    var encryptPass = Encrypt.MD5Hash(user.matKhau);
+                //    user.matKhau = encryptPass;
+                //}
 
                 var result = dao.edit(user);
 

@@ -23,12 +23,14 @@
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th></th>
                                 <th>Loại tài khoản</th>
                                 <th>Email</th>
                                 <th>Tên người dùng</th>
                                 <th>Địa chỉ</th>
                                 <th>Số điện thoại</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày cập nhật</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
                             </tr>
@@ -36,23 +38,25 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td></td>
-                                    @if (@item.maLoaiTaiKhoan == true)
-                                    {
-                                        <td>Quản trị</td>
-                                    }
-                                    else
-                                    {
-                                        <td>Người dùng</td>
-                                    }
-                                    <td>@item.email</td>
-                                    <td>@item.tenNguoiDung</td>
-                                    <td>@item.diaChi</td>
-                                    <td>@item.sdt</td>
-                                    <td><a href="/User/Edit/@item.id">Cập nhật</a></td>
-                                    <td><a href="/User/Delete/@item.id">Xóa</a></td>
-                                </tr>
+                            <tr>
+                                <td></td>
+                                @if (@item.maLoaiTaiKhoan == true)
+                                {
+                                    <td>Quản trị</td>
+                                }
+                                else
+                                {
+                                    <td>Người dùng</td>
+                                }
+                                <td>@item.email</td>
+                                <td>@item.tenNguoiDung</td>
+                                <td>@item.diaChi</td>
+                                <td>@item.sdt</td>
+                                <td>@item.ngayTao</td>
+                                <td>@item.ngayCapNhat</td>
+                                <td><a href="/User/Edit/@item.id">Cập nhật</a></td>
+                                <td><a href="/User/Delete/@item.id">Xóa</a></td>
+                            </tr>
                             }
                         </tbody>
                     </table>

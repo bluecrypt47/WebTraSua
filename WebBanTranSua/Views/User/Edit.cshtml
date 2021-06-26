@@ -1,10 +1,9 @@
 ﻿@model WebBanTranSua.Models.EF.TaiKhoan
 
 @{
-    ViewBag.Title = "Cập nhật";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 
 @section header {
     Cập nhật người dùng
@@ -19,11 +18,11 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-
-                        @using (Html.BeginForm("Edit", "User", FormMethod.Post))
+                        @using (Html.BeginForm())
                         {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.id)
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -33,7 +32,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.matKhau, htmlAttributes: new { @class = "control-label col-md-3" })
-                                @Html.PasswordFor(model => model.matKhau, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.TextBoxFor(model => model.matKhau, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.matKhau, "", new { @class = "text-danger" })
                             </div>
 
@@ -69,7 +68,6 @@
                                 </div>
                             </div>
                         }
-
                     </div>
                 </div>
             </div>
@@ -78,6 +76,5 @@
 </div>
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Quay lại danh sách", "Index")
 </div>
-
