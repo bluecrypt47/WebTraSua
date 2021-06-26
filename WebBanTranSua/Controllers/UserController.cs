@@ -13,10 +13,11 @@ namespace WebBanTranSua.Controllers
     public class UserController : BaseController
     {
         // GET: User
-        public ActionResult Index(int page = 1, int pageSize =10)
+        public ActionResult ListUser(string search, int page = 1, int pageSize = 10)
         {
             var dao = new TaiKhoanDAO();
-            var model = dao.ListAllPaging(page, pageSize);
+            var model = dao.ListAllPaging(search, page, pageSize);
+            ViewBag.search = search;
             return View(model);
         }
 
@@ -28,7 +29,7 @@ namespace WebBanTranSua.Controllers
         [HttpPost]
         public ActionResult Create(TaiKhoan user)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var dao = new TaiKhoanDAO();
 
@@ -36,16 +37,16 @@ namespace WebBanTranSua.Controllers
                 user.matKhau = encryptPass;
 
                 long id = dao.insert(user);
-                if(id> 0)
+                if (id > 0)
                 {
-                    return RedirectToAction("Index", "User");
+                    return RedirectToAction("ListUser", "User");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Thêm tài khoản thành công!!");
                 }
             }
-            return View("Index");
+            return View("ListUser");
         }
 
         public ActionResult Edit(long id)
@@ -71,14 +72,22 @@ namespace WebBanTranSua.Controllers
 
                 if (result)
                 {
-                    return RedirectToAction("Index", "User");
+                    return RedirectToAction("ListUser", "User");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Cập nhật tài khoản thành công!!");
                 }
             }
-            return View("Index");
+            return View("ListUser");
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(long id)
+        {
+            new TaiKhoanDAO().Delete(id);
+
+            return RedirectToAction("ListUser", "User");
         }
     }
 }

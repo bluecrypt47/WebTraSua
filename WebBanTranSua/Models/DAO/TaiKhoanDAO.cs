@@ -34,6 +34,7 @@ namespace WebBanTranSua.Models.DAO
                 //{
                 //    user.matKhau = taiKhoan.matKhau;
                 //}
+                user.maLoaiTaiKhoan = taiKhoan.maLoaiTaiKhoan;
                 user.tenNguoiDung = taiKhoan.tenNguoiDung;
                 user.diaChi = taiKhoan.diaChi;
                 user.sdt = taiKhoan.sdt;
@@ -43,15 +44,22 @@ namespace WebBanTranSua.Models.DAO
 
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return false;
             }
         }
 
-        public IEnumerable<TaiKhoan> ListAllPaging(int page, int pageSize)
+        public IEnumerable<TaiKhoan> ListAllPaging(string search, int page, int pageSize)
         {
-            return db.TaiKhoans.OrderByDescending(x => x.id).ToPagedList(page, pageSize);
+            IQueryable<TaiKhoan> model = db.TaiKhoans;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                model = model.Where(x => x.email.Contains(search) || x.tenNguoiDung.Contains(search));
+            }
+
+            return model.OrderByDescending(x => x.ngayTao).ToPagedList(page, pageSize);
         }
 
         public TaiKhoan getByEmail(string email)
@@ -75,11 +83,26 @@ namespace WebBanTranSua.Models.DAO
             //var result = db.Database.SqlQuery<bool>("login @email, @matkhau", sqlParam).SingleOrDefault();
 
             var result = db.TaiKhoans.Count(x => x.email == email && x.matKhau == password);
-            if(result >0)
+            if (result > 0)
             {
                 return true;
             }
             else
+            {
+                return false;
+            }
+        }
+
+        public bool Delete(long id)
+        {
+            try
+            {
+                var user = db.TaiKhoans.Find(id);
+                db.TaiKhoans.Remove(user);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
             {
                 return false;
             }
