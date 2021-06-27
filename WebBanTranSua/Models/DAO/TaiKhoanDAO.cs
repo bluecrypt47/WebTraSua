@@ -50,13 +50,13 @@ namespace WebBanTranSua.Models.DAO
             }
         }
 
-        public IEnumerable<TaiKhoan> ListAllPaging(string search, int page, int pageSize)
+        public IEnumerable<TaiKhoan> ListAllPaging(string searchUser, int page, int pageSize)
         {
             IQueryable<TaiKhoan> model = db.TaiKhoans;
 
-            if (!string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(searchUser))
             {
-                model = model.Where(x => x.email.Contains(search) || x.tenNguoiDung.Contains(search));
+                model = model.Where(x => x.email.Contains(searchUser) || x.tenNguoiDung.Contains(searchUser));
             }
 
             return model.OrderByDescending(x => x.ngayTao).ToPagedList(page, pageSize);

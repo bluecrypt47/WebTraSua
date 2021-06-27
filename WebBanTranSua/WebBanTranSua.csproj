@@ -143,10 +143,12 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAO\SanPhamDAO.cs" />
     <Compile Include="Models\DAO\TaiKhoanDAO.cs" />
     <Compile Include="Models\EF\ChiTietHoaDon.cs" />
     <Compile Include="Models\EF\HoaDon.cs" />
@@ -518,6 +520,9 @@
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\ListUser.cshtml" />
+    <Content Include="Views\Product\ListProucts.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

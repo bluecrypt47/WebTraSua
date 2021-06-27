@@ -13,11 +13,11 @@ namespace WebBanTranSua.Controllers
     public class UserController : BaseController
     {
         // GET: User
-        public ActionResult ListUser(string search, int page = 1, int pageSize = 10)
+        public ActionResult ListUser(string searchUser, int page = 1, int pageSize = 10)
         {
             var dao = new TaiKhoanDAO();
-            var model = dao.ListAllPaging(search, page, pageSize);
-            ViewBag.search = search;
+            var model = dao.ListAllPaging(searchUser, page, pageSize);
+            ViewBag.searchUser = searchUser;
             return View(model);
         }
 
