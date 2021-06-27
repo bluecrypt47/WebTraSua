@@ -17,17 +17,21 @@
 
         [Key]
         [Display(Name = "Mã sản phẩm")]
+        [Required(ErrorMessage = "Mã sản phẩm không được để trống!")]
         public long maSanPham { get; set; }
 
         [Display(Name = "Mã loại")]
+        [Required(ErrorMessage = "Mã loại không được để trống!")]
         public long maLoaiSanPham { get; set; }
 
         [StringLength(100)]
         [Display(Name = "Tên sản phẩm")]
+        [Required(ErrorMessage = "Tên sản phẩm không được để trống!")]
         public string tenSanPham { get; set; }
 
         [StringLength(1000)]
         [Display(Name = "Hình ảnh")]
+        [Required(ErrorMessage = "Hình ảnh không được để trống!")]
         public string hinhAnh { get; set; }
 
         [Display(Name = "Ngày tạo")]
@@ -37,10 +41,12 @@
         public DateTime? ngayCapNhat { get; set; }
 
         [Display(Name = "Giá bán")]
+        [Required(ErrorMessage = "Giá bán không được để trống!")]
         public double? giaBan { get; set; }
 
         [StringLength(100)]
         [Display(Name = "Đơn vị tính")]
+        [Required(ErrorMessage = "Đơn vị tính không được để trống!")]
         public string dvt { get; set; }
 
         [Display(Name = "Giảm giá")]

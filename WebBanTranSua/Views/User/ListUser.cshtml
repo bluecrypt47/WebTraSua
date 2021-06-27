@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Danh sách người dùng";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/Admin/_LayoutAdmin.cshtml";
 }
 
 @section header {
@@ -83,7 +83,7 @@
                                     <td>@item.sdt</td>
                                     <td>@item.ngayTao</td>
                                     <td>@item.ngayCapNhat</td>
-                                    <td><a href="/User/Edit/@item.id"><i class="fa fa-edit"></i></a></td>
+                                    <td><a href="/User/Edit/@item.id"><i class="fa fa-edit" style="font-size:30px;"></i></a></td>
                                     <td>
                                         @Ajax.ActionLink("Xóa", "Delete", new { @id = item.id }, new AjaxOptions
                                    {
