@@ -1,12 +1,12 @@
-﻿@model PagedList.IPagedList<WebBanTranSua.Models.EF.SanPham>
+﻿@model PagedList.IPagedList<WebBanTranSua.Models.EF.Slide>
 @using PagedList.Mvc;
 @{
-    ViewBag.Title = "Danh sách Sản phẩm";
+    ViewBag.Title = "Danh sách Slide";
     Layout = "~/Views/Shared/Admin/_LayoutAdmin.cshtml";
 }
 
 @section header {
-    Danh sách Sản phẩm
+    Danh sách Slide
 }
 <div class="row">
     <div class="col-lg-12">
@@ -14,7 +14,7 @@
             <div class="panel-heading">
                 Danh sách Sản phẩm
             </div>
-            <a href="/Product/Create" class="btn btn-link" style="        display: block;
+            <a href="/Slide/Create" class="btn btn-link" style="        display: block;
                     width: 150px;
                     margin-left: 30px;
                     margin-top: 20px;
@@ -23,10 +23,10 @@
                     border-color: #ac2925;
                     color: white;
                     text-decoration: none;
-                     ">Thêm Sản phẩm</a>
+                     ">Thêm Slide</a>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                @using (Html.BeginForm("ListProucts", "Product", FormMethod.Get))
+                @using (Html.BeginForm("ListSlides", "Slide", FormMethod.Get))
                 {
                     <div class="row">
                         <div class="col-lg-12">
@@ -47,14 +47,9 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Tên sản phẩm</th>
                                 <th>Hình ảnh</th>
-                                <th>Giá bán</th>
-                                <th>Đơn vị tính</th>
-                                <th>Giảm giá</th>
-                                <th>Giới thiệu</th>
-                                <th>Sản phẩm mới</th>
-                                <th>Sản phẩm nổi bật</th>
+                                <th>Tên</th>
+                                <th>Mô tả ngắn</th>
                                 <th>Ngày tạo</th>
                                 <th>Ngày cập nhật</th>
                                 <th>Cập nhật</th>
@@ -64,32 +59,27 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                            <tr id="row-@item.maSanPham">
-                                <td></td>
-                                <td>@item.tenSanPham</td>
-                                <td> <img src="~/Content/assets/img/anh/@item.hinhAnh" alt="ảnh" width="100" /></td>
-                                <td>@item.giaBan</td>
-                                <td>@item.dvt</td>
-                                <td>@item.giamGia</td>
-                                <td>@item.gioiThieuSanPham</td>
-                                <td>@(item.sanPhamMoi ? "Mới" : "")</td>
-                                <td>@(item.sanPhamNoiBat ? "Nổi bật" : "")</td>
-                                <td>@item.ngayTao</td>
-                                <td>@item.ngayCapNhat</td>
-                                <td><a href="/Product/Edit/@item.maSanPham"><i class="fa fa-edit" style="font-size:30px;"></i></a></td>
-                                <td>
-                                    @Ajax.ActionLink("Xóa", "Delete", new { @id = item.maSanPham }, new AjaxOptions
-                               {
-                                   Confirm = "Bạn chắc chắn muốn xóa Sản phẩm này?",
-                                   OnComplete = "$(#'row-" + @item.maSanPham + "').remove()",
-                                   HttpMethod = "Delete"
-                               })
-                                </td>
-                            </tr>
+                                <tr id="row-@item.maSlide">
+                                    <td></td>
+                                    <td> <img src="~/Content/assets/img/anh/@item.hinhAnh" alt="ảnh" width="100" /></td>
+                                    <td>@item.name</td>
+                                    <td>@item.moTaNgan</td>
+                                    <td>@item.ngayTao</td>
+                                    <td>@item.ngayCapNhat</td>
+                                    <td><a href="/Slide/Edit/@item.maSlide"><i class="fa fa-edit" style="font-size:30px;"></i></a></td>
+                                    <td>
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.maSlide }, new AjaxOptions
+                                   {
+                                       Confirm = "Bạn chắc chắn muốn xóa Slide này?",
+                                       OnComplete = "$(#'row-" + @item.maSlide + "').remove()",
+                                       HttpMethod = "Delete"
+                                   })
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>
-                    @Html.PagedListPager(Model, page => Url.Action("ListProucts", new { page }))
+                    @Html.PagedListPager(Model, page => Url.Action("ListSlides", new { page }))
                 </div>
                 <!-- /.table-responsive -->
             </div>

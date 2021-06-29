@@ -1,38 +1,27 @@
-﻿@model PagedList.IPagedList<WebBanTranSua.Models.EF.TaiKhoan>
+﻿@model PagedList.IPagedList<WebBanTranSua.Models.EF.HoaDon>
 @using PagedList.Mvc;
 @{
-    ViewBag.Title = "Danh sách người dùng";
+    ViewBag.Title = "Danh sách Hóa đơn";
     Layout = "~/Views/Shared/Admin/_LayoutAdmin.cshtml";
 }
 
 @section header {
-    Danh sách Người dùng
+    Danh sách Hóa đơn
 }
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Danh sách người dùng
+                Danh sách Hóa đơn
             </div>
-            <a href="/Admin/Create" class="btn btn-link" style="        display: block;
-        background-color: aqua;
-        width: 150px;
-        margin-left: 30px;
-        margin-top: 20px;
-        border-radius: 4px;
-        background-color: #d9534f;
-        border-color: #ac2925;
-        color: white;
-        text-decoration: none;
-    ">Thêm Người dùng</a>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                @using (Html.BeginForm("ListUser", "Admin", FormMethod.Get))
+                @using (Html.BeginForm("ListBill", "Bill", FormMethod.Get))
                 {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="col-md-4" style="margin-right:-15px;">
-                                <input type="text" value="@ViewBag.searchUser" name="searchUser" class="form-control" placeholder="Tìm kiếm">
+                                <input type="text" value="@ViewBag.searchBill" name="searchBill" class="form-control" placeholder="Tìm kiếm">
                             </div>
                             <div class="col-md-4" style=" padding-left:0px;">
                                 <button type="submit" class="btn btn-success"><i class="fa fa-search" style="color: white;"></i></button>
@@ -48,35 +37,37 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Loại tài khoản</th>
                                 <th>Email</th>
-                                <th>Tên người dùng</th>
-                                <th>Địa chỉ</th>
+                                <th>Tên người mua</th>
                                 <th>Số điện thoại</th>
-                                <th>Ngày tạo</th>
-                                <th>Ngày cập nhật</th>
-                                <th>Cập nhật</th>
+                                <th>Địa chỉ</th>
+                                <th>Ghi chú</th>
+                                <th>Ngày mua</th>
+                                <th>Số lượng</th>
+                                <th>Tổng tiền</th>
+                                <th>Xem chi tiết</th>
                                 <th>Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr id="row-@item.id">
+                                <tr id="row-@item.maHoaDon">
                                     <td></td>
-                                    <td>@(item.maLoaiTaiKhoan ? "Quản trị" : "Người dùng")</td>
                                     <td>@item.email</td>
-                                    <td>@item.tenNguoiDung</td>
-                                    <td>@item.diaChi</td>
+                                    <td>@item.tenNguoiMua</td>
                                     <td>@item.sdt</td>
-                                    <td>@item.ngayTao</td>
-                                    <td>@item.ngayCapNhat</td>
-                                    <td><a href="/Admin/Edit/@item.id"><i class="fa fa-edit" style="font-size:30px;"></i></a></td>
+                                    <td>@item.diaChi</td>
+                                    <td>@item.ghiChu</td>
+                                    <td>@item.ngayMua</td>
+                                    <td>@item.soLuong</td>
+                                    <td>@item.tongTien</td>
+                                    <td><a href="/Bill/Detail/@item.maHoaDon"><i class="fa fa-search-plus" style="font-size:30px;"></i></a></td>
                                     <td>
-                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.id }, new AjaxOptions
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.maHoaDon }, new AjaxOptions
                                    {
-                                       Confirm = "Bạn chắc chắn muốn xóa Người dùng này?",
-                                       OnComplete = "$(#'row-" + @item.id + "').remove()",
+                                       Confirm = "Bạn chắc chắn muốn xóa Hóa đơn này?",
+                                       OnComplete = "$(#'row-" + @item.maHoaDon + "').remove()",
                                        HttpMethod = "Delete"
                                    })
                                     </td>
@@ -84,7 +75,7 @@
                             }
                         </tbody>
                     </table>
-                    @Html.PagedListPager(Model, page => Url.Action("ListUser", new { page }))
+                    @Html.PagedListPager(Model, page => Url.Action("ListBill", new { page }))
                 </div>
                 <!-- /.table-responsive -->
             </div>

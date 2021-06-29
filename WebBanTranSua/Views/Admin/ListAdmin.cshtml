@@ -66,14 +66,7 @@
                             {
                                 <tr id="row-@item.id">
                                     <td></td>
-                                    @if (@item.maLoaiTaiKhoan == true)
-                                    {
-                                        <td>Quản trị</td>
-                                    }
-                                    else
-                                    {
-                                        <td>Người dùng</td>
-                                    }
+                                    <td>@(item.maLoaiTaiKhoan ? "Quản trị" : "Người dùng")</td>
                                     <td>@item.email</td>
                                     <td>@item.tenNguoiDung</td>
                                     <td>@item.diaChi</td>
