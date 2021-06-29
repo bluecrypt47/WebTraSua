@@ -27,13 +27,13 @@ namespace WebBanTranSua.Controllers
         }
 
         // Thêm 1 tài khoản
-        public ActionResult Create()
+        public ActionResult CreateAdmin()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(TaiKhoan user)
+        public ActionResult CreateAdmin(TaiKhoan user)
         {
             if (ModelState.IsValid)
             {
@@ -47,14 +47,14 @@ namespace WebBanTranSua.Controllers
                 if (id > 0)
                 {
                     SetAlert("Thêm Tài khoản thành công!!!", "success");
-                    return RedirectToAction("ListUser", "Admin");
+                    return RedirectToAction("ListAdmin", "Admin");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Thêm Tài khoản thất bại!!");
                 }
             }
-            return View("ListUser");
+            return View("ListAdmin");
         }
 
         // Cập nhật tài khoản
@@ -111,37 +111,7 @@ namespace WebBanTranSua.Controllers
             ViewBag.searchAdmin = searchAdmin;
             return View(model);
         }
-
-        // Thêm 1 tài khoản Admin
-        public ActionResult CreateAdmin()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult CreateAdmin(TaiKhoan user)
-        {
-            if (ModelState.IsValid)
-            {
-                var dao = new TaiKhoanDAO();
-
-                // Mã hóa password
-                var encryptPass = Encrypt.MD5Hash(user.matKhau);
-                user.matKhau = encryptPass;
-
-                long id = dao.insert(user);
-                if (id > 0)
-                {
-                    SetAlert("Thêm Tài khoản thành công!!!", "success");
-                    return RedirectToAction("ListAdmin", "Admin");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Thêm Tài khoản thất bại!!");
-                }
-            }
-            return View("ListAdmin");
-        }
+        
 
         // Cập nhật tài khoản
         public ActionResult EditAdmin(long id)
