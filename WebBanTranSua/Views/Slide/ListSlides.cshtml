@@ -14,16 +14,7 @@
             <div class="panel-heading">
                 Danh sách Sản phẩm
             </div>
-            <a href="/Slide/Create" class="btn btn-link" style="        display: block;
-                    width: 150px;
-                    margin-left: 30px;
-                    margin-top: 20px;
-                    border-radius: 4px;
-                    background-color: #d9534f;
-                    border-color: #ac2925;
-                    color: white;
-                    text-decoration: none;
-                     ">Thêm Slide</a>
+
             <!-- /.panel-heading -->
             <div class="panel-body">
                 @using (Html.BeginForm("ListSlides", "Slide", FormMethod.Get))
@@ -35,6 +26,7 @@
                             </div>
                             <div class="col-md-4" style=" padding-left:0px;">
                                 <button type="submit" class="btn btn-success"><i class="fa fa-search" style="color: white;"></i></button>
+                                <a href="/Slide/Create" class="btn btn-primary" style=" background-color: #d9534f;border-color: #ac2925;">Thêm Slide</a>
                             </div>
                         </div>
                     </div>

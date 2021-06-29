@@ -14,16 +14,6 @@
             <div class="panel-heading">
                 Danh sách Loại sản phẩm
             </div>
-            <a href="/LoaiSanPham/Create" class="btn btn-link" style="        display: block;
-                    width: 150px;
-                    margin-left: 30px;
-                    margin-top: 20px;
-                    border-radius: 4px;
-                    background-color: #d9534f;
-                    border-color: #ac2925;
-                    color: white;
-                    text-decoration: none;
-                     ">Thêm Loại sản phẩm</a>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 @using (Html.BeginForm("ListTypeProucts", "LoaiSanPham", FormMethod.Get))
@@ -35,6 +25,7 @@
                             </div>
                             <div class="col-md-4" style=" padding-left:0px;">
                                 <button type="submit" class="btn btn-success"><i class="fa fa-search" style="color: white;"></i></button>
+                                <a href="/LoaiSanPham/Create" class="btn btn-primary" style=" background-color: #d9534f;border-color: #ac2925;">Thêm Loại sản phẩm</a>
                             </div>
                         </div>
                     </div>

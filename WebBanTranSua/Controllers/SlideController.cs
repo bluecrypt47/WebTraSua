@@ -34,11 +34,12 @@ namespace WebBanTranSua.Controllers
                 long id = dao.insert(slide);
                 if (id > 0)
                 {
+                    SetAlert("Thêm Slide thành công!!!", "success");
                     return RedirectToAction("ListSlides", "Slide");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm Slide thành công!!");
+                    ModelState.AddModelError("", "Thêm Slide thất bại!!!");
                 }
             }
             return View("ListSlides");
@@ -61,11 +62,12 @@ namespace WebBanTranSua.Controllers
 
                 if (result)
                 {
+                    SetAlert("Cập nhật Slide thành công!!!", "success");
                     return RedirectToAction("ListSlides", "Slide");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật Silde thành công!!");
+                    ModelState.AddModelError("", "Cập nhật Silde thất bại!!!");
                 }
             }
             return View("ListSlides");

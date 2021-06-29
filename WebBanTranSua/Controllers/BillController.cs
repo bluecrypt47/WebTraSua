@@ -7,7 +7,7 @@ using WebBanTranSua.Models.DAO;
 
 namespace WebBanTranSua.Controllers
 {
-    public class BillController : Controller
+    public class BillController : BaseController
     {
         // GET: Bill
         public ActionResult ListBill(string searchBill, int page = 1, int pageSize = 10)
@@ -23,6 +23,7 @@ namespace WebBanTranSua.Controllers
         {
             new HoaDonDAO().Delete(id);
 
+            SetAlert("Xóa Hóa đơn thành công!!!", "success");
             return RedirectToAction("ListBill", "Bill");
         }
     }

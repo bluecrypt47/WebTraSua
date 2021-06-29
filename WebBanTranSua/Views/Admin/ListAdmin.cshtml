@@ -14,17 +14,6 @@
             <div class="panel-heading">
                 Danh sách Quản trị
             </div>
-            <a href="/Admin/CreateAdmin" class="btn btn-link" style="        display: block;
-        background-color: aqua;
-        width: 150px;
-        margin-left: 30px;
-        margin-top: 20px;
-        border-radius: 4px;
-        background-color: #d9534f;
-        border-color: #ac2925;
-        color: white;
-        text-decoration: none;
-    ">Thêm Quản trị</a>
             <!-- /.panel-heading -->
             <div class="panel-body">
                 @using (Html.BeginForm("ListAdmin", "Admin", FormMethod.Get))
@@ -38,6 +27,7 @@
                                 <button type="submit" class="btn btn-success">
                                     <i class="fa fa-search" style="color: white;"></i>
                                 </button>
+                                <a href="/Admin/CreateAdmin" class="btn btn-primary" style=" background-color: #d9534f;border-color: #ac2925;">Thêm Quản trị</a>
                             </div>
                         </div>
                     </div>

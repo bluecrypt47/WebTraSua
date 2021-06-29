@@ -46,11 +46,12 @@ namespace WebBanTranSua.Controllers
                 long id = dao.insert(user);
                 if (id > 0)
                 {
+                    SetAlert("Thêm Tài khoản thành công!!!", "success");
                     return RedirectToAction("ListUser", "Admin");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm tài khoản thất bại!!");
+                    ModelState.AddModelError("", "Thêm Tài khoản thất bại!!");
                 }
             }
             return View("ListUser");
@@ -80,11 +81,12 @@ namespace WebBanTranSua.Controllers
 
                 if (result)
                 {
+                    SetAlert("Cập nhật Tài khoản thành công!!!", "success");
                     return RedirectToAction("ListUser", "Admin");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật tài khoản thất bại!!");
+                    ModelState.AddModelError("", "Cập nhật Tài khoản thất bại!!");
                 }
             }
             return View("ListUser");
@@ -95,6 +97,7 @@ namespace WebBanTranSua.Controllers
         {
             new TaiKhoanDAO().Delete(id);
 
+            SetAlert("Xóa Tài khoản thành công!!!", "success");
             return RedirectToAction("ListUser", "Admin");
         }
 
@@ -129,11 +132,12 @@ namespace WebBanTranSua.Controllers
                 long id = dao.insert(user);
                 if (id > 0)
                 {
+                    SetAlert("Thêm Tài khoản thành công!!!", "success");
                     return RedirectToAction("ListAdmin", "Admin");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm tài khoản thất bại!!");
+                    ModelState.AddModelError("", "Thêm Tài khoản thất bại!!");
                 }
             }
             return View("ListAdmin");
@@ -163,11 +167,12 @@ namespace WebBanTranSua.Controllers
 
                 if (result)
                 {
+                    SetAlert("Cập nhật Tài khoản thành công!!!", "success");
                     return RedirectToAction("ListAdmin", "Admin");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật tài khoản thất bại!!");
+                    ModelState.AddModelError("", "Cập nhật Tài khoản thất bại!!");
                 }
             }
             return View("ListAdmin");
@@ -178,6 +183,7 @@ namespace WebBanTranSua.Controllers
         {
             new TaiKhoanDAO().Delete(id);
 
+            SetAlert("Xóa Tài khoản thành công!!!", "success");
             return RedirectToAction("ListAdmin", "Admin");
         }
     }

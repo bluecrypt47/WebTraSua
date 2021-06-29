@@ -34,11 +34,12 @@ namespace WebBanTranSua.Controllers
                 long id = dao.insert(loaiSanPham);
                 if (id > 0)
                 {
+                    SetAlert("Thêm Loại sản phẩm thành công!!!", "success");
                     return RedirectToAction("ListTypeProucts", "LoaiSanPham");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm loại sản phẩm thành công!!");
+                    ModelState.AddModelError("", "Thêm Loại sản phẩm thất bại!!!");
                 }
             }
             return View("ListTypeProucts");
@@ -61,11 +62,12 @@ namespace WebBanTranSua.Controllers
 
                 if (result)
                 {
+                    SetAlert("Cập nhật Loại sản phẩm thành công!!!", "success");
                     return RedirectToAction("ListTypeProucts", "LoaiSanPham");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật loại sản phẩm thành công!!");
+                    ModelState.AddModelError("", "Cập nhật Loại sản phẩm thất bại!!!");
                 }
             }
             return View("ListTypeProucts");
@@ -76,6 +78,7 @@ namespace WebBanTranSua.Controllers
         {
             new LoaiSanPhamDAO().Delete(id);
 
+            SetAlert("Xóa Loại sản phẩm thành công!!!", "success");
             return RedirectToAction("ListTypeProucts", "LoaiSanPham");
         }
     }

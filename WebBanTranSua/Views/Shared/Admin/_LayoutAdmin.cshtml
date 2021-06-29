@@ -45,6 +45,13 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+                @if (TempData["AlertMessage"] != null)
+                {
+                    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                        @TempData["AlertMessage"]
+                    </div>
+                }
+
                 @RenderBody()
             </div>
             <!-- /.container-fluid -->
@@ -54,7 +61,7 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="~/Content/assetsAdmin/js/jquery.min.js"></script>=
+    <script src="~/Content/assetsAdmin/js/jquery.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
