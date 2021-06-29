@@ -139,13 +139,12 @@
     <Compile Include="Common\CommenConstants.cs" />
     <Compile Include="Common\Encrypt.cs" />
     <Compile Include="Common\UserLogin.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -517,18 +516,21 @@
     <Content Include="Views\Shared\User\_Header.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Admin\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\User\Create.cshtml" />
-    <Content Include="Views\User\Edit.cshtml" />
-    <Content Include="Views\User\ListUser.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\ListUser.cshtml" />
     <Content Include="Views\Product\ListProucts.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\LoaiSanPham\ListTypeProucts.cshtml" />
     <Content Include="Views\LoaiSanPham\Create.cshtml" />
     <Content Include="Views\LoaiSanPham\Edit.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\CreateAdmin.cshtml" />
+    <Content Include="Views\Admin\EditAdmin.cshtml" />
     <None Include="Views\Shared\Admin\_LeftMenusAdmin.cshtml" />
+    <Content Include="Views\Admin\ListAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,21 +9,21 @@ namespace WebBanTranSua.Common
 {
     public class Encrypt
     {
+        // Dùng để mã hóa mật khẩu bằng md5
         public static string MD5Hash(string text)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
 
-            //compute hash from the bytes of text  
+            // Băm password
             md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
 
-            //get hash result after compute it  
+            // Gán kết quả sau khi băm
             byte[] result = md5.Hash;
 
             StringBuilder strBuilder = new StringBuilder();
             for (int i = 0; i < result.Length; i++)
             {
-                //change it into 2 hexadecimal digits  
-                //for each byte  
+                // Thay đổi thành 2 chữ số thập lục phân cho mỗi byte
                 strBuilder.Append(result[i].ToString("x2"));
             }
 

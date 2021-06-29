@@ -52,7 +52,19 @@ namespace WebBanTranSua.Models.DAO
 
         public IEnumerable<TaiKhoan> ListAllPaging(string searchUser, int page, int pageSize)
         {
-            IQueryable<TaiKhoan> model = db.TaiKhoans;
+            IQueryable<TaiKhoan> model = db.TaiKhoans.Where(x => x.maLoaiTaiKhoan == false);
+
+            if (!string.IsNullOrEmpty(searchUser))
+            {
+                model = model.Where(x => x.email.Contains(searchUser) || x.tenNguoiDung.Contains(searchUser));
+            }
+
+            return model.OrderByDescending(x => x.ngayTao).ToPagedList(page, pageSize);
+        }
+
+        public IEnumerable<TaiKhoan> ListAllPagingAdmin(string searchUser, int page, int pageSize)
+        {
+            IQueryable<TaiKhoan> model = db.TaiKhoans.Where(x => x.maLoaiTaiKhoan == true);
 
             if (!string.IsNullOrEmpty(searchUser))
             {

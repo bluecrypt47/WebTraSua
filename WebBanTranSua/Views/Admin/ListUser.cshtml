@@ -14,7 +14,7 @@
             <div class="panel-heading">
                 Danh sách người dùng
             </div>
-            <a href="/User/Create" class="btn btn-link" style="        display: block;
+            <a href="/Admin/Create" class="btn btn-link" style="        display: block;
         background-color: aqua;
         width: 150px;
         margin-left: 30px;
@@ -27,7 +27,7 @@
     ">Thêm Người dùng</a>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                @using (Html.BeginForm("ListUser", "User", FormMethod.Get))
+                @using (Html.BeginForm("ListUser", "Admin", FormMethod.Get))
                 {
                     <div class="row">
                         <div class="col-lg-12">
@@ -83,7 +83,7 @@
                                     <td>@item.sdt</td>
                                     <td>@item.ngayTao</td>
                                     <td>@item.ngayCapNhat</td>
-                                    <td><a href="/User/Edit/@item.id"><i class="fa fa-edit" style="font-size:30px;"></i></a></td>
+                                    <td><a href="/Admin/Edit/@item.id"><i class="fa fa-edit" style="font-size:30px;"></i></a></td>
                                     <td>
                                         @Ajax.ActionLink("Xóa", "Delete", new { @id = item.id }, new AjaxOptions
                                    {
