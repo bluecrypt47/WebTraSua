@@ -16,6 +16,7 @@ namespace WebBanTranSua.Models.DAO
             db = new WTSDBContext();
         }
 
+        // Hiện danh sách có phân trang
         public IEnumerable<SanPham> ListAllPaging(string searchProducts, int page, int pageSize)
         {
             IQueryable<SanPham> model = db.SanPhams;
@@ -28,6 +29,7 @@ namespace WebBanTranSua.Models.DAO
             return model.OrderByDescending(x => x.ngayTao).ToPagedList(page, pageSize);
         }
 
+        // Thêm 
         public long insert(SanPham enity)
         {
             db.SanPhams.Add(enity);
@@ -35,6 +37,7 @@ namespace WebBanTranSua.Models.DAO
             return enity.maSanPham;
         }
 
+        // Sửa
         public bool edit(SanPham sanPham)
         {
             try
@@ -62,12 +65,13 @@ namespace WebBanTranSua.Models.DAO
             }
         }
 
+        // Tìm ID
         public SanPham GetByID(long id)
         {
             return db.SanPhams.Find(id);
         }
 
-
+        // Xóa
         public bool Delete(long id)
         {
             try

@@ -16,6 +16,7 @@ namespace WebBanTranSua.Models.DAO
             db = new WTSDBContext();
         }
 
+        // Thêm
         public long insert(TaiKhoan enity)
         {
             db.TaiKhoans.Add(enity);
@@ -23,6 +24,7 @@ namespace WebBanTranSua.Models.DAO
             return enity.id;
         }
 
+        // Sửa
         public bool edit(TaiKhoan taiKhoan)
         {
             try
@@ -50,6 +52,7 @@ namespace WebBanTranSua.Models.DAO
             }
         }
 
+        // Hiện danh sách có phân trang user
         public IEnumerable<TaiKhoan> ListAllPaging(string searchUser, int page, int pageSize)
         {
             IQueryable<TaiKhoan> model = db.TaiKhoans.Where(x => x.maLoaiTaiKhoan == false);
@@ -62,28 +65,32 @@ namespace WebBanTranSua.Models.DAO
             return model.OrderByDescending(x => x.ngayTao).ToPagedList(page, pageSize);
         }
 
-        public IEnumerable<TaiKhoan> ListAllPagingAdmin(string searchUser, int page, int pageSize)
+        // Hiện danh sách có phân trang admin
+        public IEnumerable<TaiKhoan> ListAllPagingAdmin(string searchAdmin, int page, int pageSize)
         {
             IQueryable<TaiKhoan> model = db.TaiKhoans.Where(x => x.maLoaiTaiKhoan == true);
 
-            if (!string.IsNullOrEmpty(searchUser))
+            if (!string.IsNullOrEmpty(searchAdmin))
             {
-                model = model.Where(x => x.email.Contains(searchUser) || x.tenNguoiDung.Contains(searchUser));
+                model = model.Where(x => x.email.Contains(searchAdmin) || x.tenNguoiDung.Contains(searchAdmin));
             }
 
             return model.OrderByDescending(x => x.ngayTao).ToPagedList(page, pageSize);
         }
 
+        // Tìm theo Email
         public TaiKhoan getByEmail(string email)
         {
             return db.TaiKhoans.SingleOrDefault(x => x.email == email);
         }
 
+        // Tìm theo ID
         public TaiKhoan GetByID(long id)
         {
             return db.TaiKhoans.Find(id);
         }
 
+        // Đăng nhập
         public bool Login(string email, string password)
         {
             object[] sqlParam =
@@ -105,6 +112,7 @@ namespace WebBanTranSua.Models.DAO
             }
         }
 
+        // Xóa
         public bool Delete(long id)
         {
             try
