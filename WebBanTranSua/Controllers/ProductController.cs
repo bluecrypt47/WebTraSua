@@ -8,7 +8,7 @@ using WebBanTranSua.Models.EF;
 
 namespace WebBanTranSua.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         // GET: Product
         public ActionResult ListProucts(string searchProducts, int page = 1, int pageSize = 10)
@@ -19,8 +19,15 @@ namespace WebBanTranSua.Controllers
             return View(model);
         }
 
+        public void SetViewBag(long? selectedId = null)
+        {
+            var dao = new LoaiSanPhamDAO();
+            ViewBag.MaLoaiSanPham = new SelectList(dao.ListTypeProducts(), "maLoaiSanPham", "tenLoaiSanPham", selectedId);
+        }
+
         public ActionResult Create()
         {
+            SetViewBag();
             return View();
         }
 
@@ -47,6 +54,7 @@ namespace WebBanTranSua.Controllers
         public ActionResult Edit(long id)
         {
             var sanPham = new SanPhamDAO().GetByID(id);
+            SetViewBag();
             return View(sanPham);
         }
 

@@ -23,6 +23,12 @@
         [Display(Name = "Tên loại")]
         public string tenLoaiSanPham { get; set; }
 
+        [Display(Name = "Ngày tạo")]
+        public DateTime? ngayTao { get; set; }
+
+        [Display(Name = "Ngày cập nhật")]
+        public DateTime? ngayCapNhat { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }

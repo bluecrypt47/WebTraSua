@@ -26,7 +26,7 @@
 
                             <div class="form-group">
                                 @Html.LabelFor(model => model.maLoaiSanPham, htmlAttributes: new { @class = "control-label col-md-3" })
-                                @Html.TextBoxFor(model => model.maLoaiSanPham, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.DropDownListFor(model => model.maLoaiSanPham, null, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.maLoaiSanPham, "", new { @class = "text-danger" })
                             </div>
 
@@ -67,15 +67,19 @@
                             </div>
 
                             <div class="form-group">
-                                @Html.LabelFor(model => model.sanPhamMoi, htmlAttributes: new { @class = "control-label col-md-3" })
-                                @Html.TextBoxFor(model => model.sanPhamMoi, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.sanPhamMoi, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.sanPhamMoi, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(model => model.sanPhamMoi)
+                                    @Html.ValidationMessageFor(model => model.sanPhamMoi, "", new { @class = "text-danger" })
+                                </div>
                             </div>
 
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.sanPhamNoiBat, htmlAttributes: new { @class = "control-label col-md-3" })
-                                @Html.TextBoxFor(model => model.sanPhamNoiBat, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.sanPhamNoiBat, "", new { @class = "text-danger" })
+                            <div class="form-group" style="clear:left;">
+                                @Html.LabelFor(model => model.sanPhamNoiBat, htmlAttributes: new { @class = "control-label col-md-4" })
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(model => model.sanPhamNoiBat)
+                                    @Html.ValidationMessageFor(model => model.sanPhamNoiBat, "", new { @class = "text-danger" })
+                                </div>
                             </div>
 
                             <div class="form-group">

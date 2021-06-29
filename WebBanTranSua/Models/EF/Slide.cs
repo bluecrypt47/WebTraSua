@@ -24,5 +24,11 @@
         [StringLength(100)]
         [Display(Name = "Mô tả ngắn")]
         public string moTaNgan { get; set; }
+
+        [Display(Name = "Ngày tạo")]
+        public DateTime? ngayTao { get; set; }
+
+        [Display(Name = "Ngày cập nhật")]
+        public DateTime? ngayCapNhat { get; set; }
     }
 }

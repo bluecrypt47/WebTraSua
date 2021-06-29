@@ -20,7 +20,8 @@
         [Required(ErrorMessage = "Mã sản phẩm không được để trống!")]
         public long maSanPham { get; set; }
 
-        [Display(Name = "Mã loại")]
+
+        [Display(Name = "Loại sản phẩm")]
         [Required(ErrorMessage = "Mã loại không được để trống!")]
         public long maLoaiSanPham { get; set; }
 
@@ -52,15 +53,15 @@
         [Display(Name = "Giảm giá")]
         public double? giamGia { get; set; }
 
-        [StringLength(1000)]
         [Display(Name = "Giới thiệu")]
+        [StringLength(1000)]
         public string gioiThieuSanPham { get; set; }
 
         [Display(Name = "Sản phẩm mới")]
-        public bool? sanPhamMoi { get; set; }
+        public bool sanPhamMoi { get; set; }
 
         [Display(Name = "Sản phẩm nổi bật")]
-        public bool? sanPhamNoiBat { get; set; }
+        public bool sanPhamNoiBat { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
