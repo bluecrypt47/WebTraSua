@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebBanTranSua.Models.DAO;
 
 namespace WebBanTranSua.Controllers
 {
@@ -12,6 +13,20 @@ namespace WebBanTranSua.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Menus()
+        {
+            var model = new MenuDAO().listMenus();
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            var model = new FooterDAO().GetFooter();
+            return PartialView(model);
         }
     }
 }

@@ -19,6 +19,8 @@ namespace WebBanTranSua.Models.EF
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<Footer> Footers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -52,6 +54,14 @@ namespace WebBanTranSua.Models.EF
 
             modelBuilder.Entity<TaiKhoan>()
                 .Property(e => e.sdt)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Menu>()
+                .Property(e => e.duongDan)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Menu>()
+                .Property(e => e.targets)
                 .IsUnicode(false);
         }
     }

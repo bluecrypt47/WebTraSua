@@ -150,15 +150,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAO\FooterDAO.cs" />
     <Compile Include="Models\DAO\HoaDonDAO.cs" />
     <Compile Include="Models\DAO\LoaiSanPhamDAO.cs" />
+    <Compile Include="Models\DAO\MenuDAO.cs" />
     <Compile Include="Models\DAO\SanPhamDAO.cs" />
     <Compile Include="Models\DAO\SlideDAO.cs" />
     <Compile Include="Models\DAO\TaiKhoanDAO.cs" />
     <Compile Include="Models\EF\ChiTietHoaDon.cs" />
+    <Compile Include="Models\EF\Footer.cs" />
     <Compile Include="Models\EF\HoaDon.cs" />
     <Compile Include="Models\EF\LoaiSanPham.cs" />
     <Compile Include="Models\EF\LoaiTaiKhoan.cs" />
+    <Compile Include="Models\EF\Menu.cs" />
     <Compile Include="Models\EF\SanPham.cs" />
     <Compile Include="Models\EF\Slide.cs" />
     <Compile Include="Models\EF\TaiKhoan.cs" />
@@ -516,7 +520,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\User\_Layout.cshtml" />
-    <Content Include="Views\Shared\User\_Footer.cshtml" />
     <Content Include="Views\Shared\User\_Header.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Admin\_LayoutAdmin.cshtml" />
@@ -533,11 +536,13 @@
     <Content Include="Views\Admin\CreateAdmin.cshtml" />
     <Content Include="Views\Admin\EditAdmin.cshtml" />
     <Content Include="Views\Bill\ListBill.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
     <None Include="Views\Shared\Admin\_LeftMenusAdmin.cshtml" />
     <Content Include="Views\Admin\ListAdmin.cshtml" />
     <Content Include="Views\Slide\ListSlides.cshtml" />
     <Content Include="Views\Slide\Create.cshtml" />
     <Content Include="Views\Slide\Edit.cshtml" />
+    <Content Include="Views\Home\Menus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
