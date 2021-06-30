@@ -16,6 +16,12 @@ namespace WebBanTranSua.Models.DAO
             db = new WTSDBContext();
         }
 
+        // Lấy danh sách
+        public List<Slide> ListSlides()
+        {
+            return db.Slides.OrderBy(x => x.ngayTao).ToList();
+        }
+
         // Hiện danh sách có phân trang
         public IEnumerable<Slide> ListAllPaging(string searchProducts, int page, int pageSize)
         {

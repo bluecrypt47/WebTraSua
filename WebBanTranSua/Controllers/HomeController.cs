@@ -12,6 +12,8 @@ namespace WebBanTranSua.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Categorys = new LoaiSanPhamDAO().ListTypeProducts();
+            ViewBag.Slides = new SlideDAO().ListSlides();
             return View();
         }
 

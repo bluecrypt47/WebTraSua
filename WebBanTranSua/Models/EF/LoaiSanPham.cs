@@ -23,6 +23,11 @@
         [Display(Name = "Tên loại")]
         public string tenLoaiSanPham { get; set; }
 
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "Đường dẫn")]
+        public string duongDan { get; set; }
+
         [Display(Name = "Ngày tạo")]
         public DateTime? ngayTao { get; set; }
 

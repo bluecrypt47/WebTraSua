@@ -19,7 +19,7 @@ namespace WebBanTranSua.Models.DAO
         // Lấy danh sách
         public List<LoaiSanPham> ListTypeProducts()
         {
-            return db.LoaiSanPhams.ToList();
+            return db.LoaiSanPhams.OrderBy(x => x.ngayTao).ToList();
         }
 
         // Hiện danh sách có phân trang

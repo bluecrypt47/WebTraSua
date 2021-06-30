@@ -66,12 +66,6 @@ namespace WebBanTranSua.Controllers
             {
                 var dao = new SanPhamDAO();
 
-                //if(!string.IsNullOrEmpty(user.matKhau))
-                //{
-                //    var encryptPass = Encrypt.MD5Hash(user.matKhau);
-                //    user.matKhau = encryptPass;
-                //}
-
                 var result = dao.edit(sanPham);
 
                 if (result)
