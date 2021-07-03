@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebBanTranSua.Models.EF.SanPham>
+
+@{
+    ViewBag.Title = "Tất cả sản phẩm";
+    Layout = "~/Views/Shared/User/_Layout.cshtml";
+}
+<h3>Tất cả sản phẩm </h3>
+<ul class="thumbnails">
+    @foreach (var item in Model)
+    {
+        <li class="span4">
+            <div class="thumbnail">
+                <a href="product_details.html" class="overlay"></a>
+                <a class="zoomTool" href="product_details.html" title="Thêm vào giỏ"><span class="icon-search"></span> XEM</a>
+                <a href="product_details.html"><img src="~/Content/assets/img/anh/@item.hinhAnh" alt="@item.tenSanPham"></a>
+                <div class="caption cntr">
+                    <p>@item.tenSanPham</p>
+                    <p><strong> @item.giaBan₫</strong></p>
+                    <h4><a class="shopBtn" href="#" title="add to cart"> Thêm vào giỏ </a></h4>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+<hr />

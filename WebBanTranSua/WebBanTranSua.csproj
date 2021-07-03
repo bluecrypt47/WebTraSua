@@ -146,6 +146,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ProductUserController.cs" />
     <Compile Include="Controllers\SlideController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,7 +230,7 @@
     <Content Include="Content\assets\img\6.png" />
     <Content Include="Content\assets\img\a.jpg" />
     <Content Include="Content\assets\img\anh\ba-bap-rang.jpg" />
-    <Content Include="Content\assets\img\anh\ba-chuoi-chien.jpg" />
+    <Content Include="Content\assets\img\anh\ba-chuoi-chien1.jpg" />
     <Content Include="Content\assets\img\anh\ba-flan.jpg" />
     <Content Include="Content\assets\img\anh\ba-mochi-dai-loan1.png" />
     <Content Include="Content\assets\img\anh\ba-trang-cuon-chien.jpg" />
@@ -258,7 +259,7 @@
     <Content Include="Content\assets\img\anh\dan-hotdog-han-quoc.jpg" />
     <Content Include="Content\assets\img\anh\dan-hotdog.jpg" />
     <Content Include="Content\assets\img\anh\dan\ba-bap-rang.jpg" />
-    <Content Include="Content\assets\img\anh\dan\ba-chuoi-chien.jpg" />
+    <Content Include="Content\assets\img\anh\dan\ba-chuoi-chien1.jpg" />
     <Content Include="Content\assets\img\anh\dan\ba-flan.jpg" />
     <Content Include="Content\assets\img\anh\dan\ba-mochi-dai-loan1.png" />
     <Content Include="Content\assets\img\anh\dan\ba-trang-cuon-chien.jpg" />
@@ -445,6 +446,7 @@
     <Content Include="Content\assets\img\slides\tra-sua-matcha.jpg" />
     <Content Include="Content\assets\img\slides\tra-sua-tu-nau.jpg" />
     <Content Include="Content\assets\img\slides\tra-thom.jpg" />
+    <Content Include="Content\assets\img\TNCL-logo.png" />
     <Content Include="Content\assets\img\visa.png" />
     <Content Include="Content\assets\img\white_leather.png" />
     <Content Include="Content\assets\js\bootstrap.js" />
@@ -537,6 +539,9 @@
     <Content Include="Views\Admin\EditAdmin.cshtml" />
     <Content Include="Views\Bill\ListBill.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\ProductUser\ProductDetails.cshtml" />
+    <Content Include="Views\ProductUser\TypeProducts.cshtml" />
+    <Content Include="Views\ProductUser\AllProducts.cshtml" />
     <None Include="Views\Shared\Admin\_LeftMenusAdmin.cshtml" />
     <Content Include="Views\Admin\ListAdmin.cshtml" />
     <Content Include="Views\Slide\ListSlides.cshtml" />

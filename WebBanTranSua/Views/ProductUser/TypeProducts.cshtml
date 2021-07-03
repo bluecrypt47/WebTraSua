@@ -1,0 +1,93 @@
+﻿@model IEnumerable<WebBanTranSua.Models.EF.SanPham>
+
+@{
+    ViewBag.Title = "Loại sản phẩm";
+    Layout = "~/Views/Shared/User/_Layout.cshtml";
+    var categorys = (List<WebBanTranSua.Models.EF.LoaiSanPham>)ViewBag.Categorys;
+
+}
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+
+                @foreach (var item in categorys)
+                {
+                    <li><a href="/loai-san-pham/@item.maLoaiSanPham"><span class="icon-circle-blank"></span>@item.tenLoaiSanPham</a></li>
+                }
+                <li style="border:0"> &nbsp;</li>
+                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+            </ul>
+        </div>
+
+
+    </div>
+    <div class="span9">
+        <div class="well well-small">
+            @*<h3>Our Products </h3>*@
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    @foreach (var item in Model)
+                    {
+                        <li class="span4">
+                            <div class="thumbnail">
+                                <a href="/chi-tiet-san-pham/@item.maSanPham" class="overlay"></a>
+                                <a class="zoomTool" href="/chi-tiet-san-pham/@item.maSanPham" title="add to cart"><span class="icon-search"></span> XEM</a>
+                                <a href="/chi-tiet-san-pham/@item.maSanPham"><img src="~/Content/assets/img/anh/@item.hinhAnh" alt="@item.tenSanPham"></a>
+                                <div class="caption cntr">
+                                    <p>@item.tenSanPham</p>
+                                    <p><strong> @item.giaBan₫</strong></p>
+                                    <h4><a class="shopBtn" href="#" title="add to cart"> Thêm vào giỏ</a></h4>
+                                    <br class="clr">
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    <!--Phân trang-->
+                    @*@if (ViewBag.TotalPage > 1)
+                        {
+                            var pageDisplay = (int)ViewBag.MaxPage;
+                            int totalPage = (int)ViewBag.TotalPage;
+                            int currentPage = (int)ViewBag.Page;
+
+                            var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                            var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                            <div class="paging">
+                                @if (currentPage > ViewBag.First)
+                                {
+                                    <a href="#" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a>
+                                    <a href="#" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
+                                }
+
+                                @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                {
+                                    if (currentPage == i)
+                                    {
+                                        <a href="#" class="active" title="Trang @i">@i</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="pos" title="Trang @i">@i</a>
+                                    }
+                                }
+
+                                @if (currentPage < totalPage)
+                                {
+                                    <a href="#" title="Trang sau" class="next"><i class="fa fa-angle-right"></i></a>
+                                    <a href="#" title="Trang cuối" class="last"><i class="fa fa-angle-double-right"></i></a>
+                                }
+
+                            </div>
+
+                        }
+                        else
+                        {
+                            <spna>Không có sản phẩm nào</spna>
+                        }*@
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

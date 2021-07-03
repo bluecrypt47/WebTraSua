@@ -1,0 +1,110 @@
+﻿@model WebBanTranSua.Models.EF.SanPham
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/User/_Layout.cshtml";
+    var categorys = (List<WebBanTranSua.Models.EF.LoaiSanPham>)ViewBag.Categorys;
+    var ListProductsRelated = (List<WebBanTranSua.Models.EF.SanPham>)ViewBag.ListProductsRelated;
+}
+
+<!--
+Body Section
+-->
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+
+                @foreach (var item in categorys)
+                {
+                    <li><a href="/loai-san-pham/@item.maLoaiSanPham"><span class="icon-circle-blank"></span>@item.tenLoaiSanPham</a></li>
+                }
+                <li style="border:0"> &nbsp;</li>
+                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+            </ul>
+        </div>
+
+
+
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a> <span class="divider">/</span></li>
+            <li><a href="#">Items</a> <span class="divider">/</span></li>
+            <li class="active">Preview</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <a href="#"> <img src="~/Content/assets/img/anh/@Model.hinhAnh" alt="@Model.tenSanPham" style="width:100%"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>@Model.tenSanPham</h3>
+                    <hr class="soft" />
+
+                    <form class="form-horizontal qtyFrm" method="get" action="#">
+                        <div class="control-group">
+                            <label class="control-label"><span>@Model.giaBan₫/ @Model.dvt</span></label>
+                        </div>
+                        <h4></h4>
+                        <p>
+                            @Model.gioiThieuSanPham
+                        <p>
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Thêm vào giỏ</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="softn clr" />
+
+
+            <ul id="productDetail" class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Giới thiệu sản phẩm</a></li>
+                <li class=""><a href="#profile" data-toggle="tab">Sản phẩm liên quan </a></li>
+
+            </ul>
+            <div id="myTabContent" class="tab-content tabWrapper">
+                <div class="tab-pane fade active in" id="home">
+                    @Model.gioiThieuSanPham
+
+                </div>
+                <div class="tab-pane fade" id="profile">
+                    <div class="row-fluid">
+
+                        @foreach (var item in ListProductsRelated)
+                        {
+                            <div class="span2">
+                                <img src="~/Content/assets/img/anh/@item.hinhAnh" alt="">
+                            </div>
+                            <div class="span6">
+                                <h5>@item.tenSanPham</h5>
+                                <p>
+                                    @item.gioiThieuSanPham
+                                </p>
+                            </div>
+                            <div class="span4 alignR">
+                                <form class="form-horizontal qtyFrm">
+                                    <h3>@item.giaBan₫</h3>
+                                    <br>
+                                    <div class="btn-group">
+                                        <a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Thêm vào giỏ</a>
+                                        <a href="/chi-tiet-san-pham/@item.maSanPham" class="shopBtn">XEM</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr class="soft">
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

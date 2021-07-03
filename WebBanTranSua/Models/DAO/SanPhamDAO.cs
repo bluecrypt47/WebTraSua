@@ -16,6 +16,45 @@ namespace WebBanTranSua.Models.DAO
             db = new WTSDBContext();
         }
 
+        // List all sản phẩm 
+        public List<SanPham> AllProducts()
+        {
+
+            return db.SanPhams.OrderByDescending(x => x.ngayCapNhat).ToList();
+        }
+            
+
+    // List sản phẩm liên quan
+    public List<SanPham> ListProductsRelated(long id)
+        {
+            var product = db.SanPhams.Find(id);
+            return db.SanPhams.Where(x => x.maSanPham != id && x.maLoaiSanPham == product.maLoaiSanPham).ToList();
+        }
+
+        // List sản phẩm cùng loại
+        //public List<SanPham> ListProductsByTypeID(long id, ref int totalRecord, int pageIndex, int pageSize)
+        //{
+        //    totalRecord = db.SanPhams.Where(x => x.maLoaiSanPham == id).Count();
+        //    var model = db.SanPhams.Where(x => x.maLoaiSanPham == id).OrderByDescending(x => x.ngayCapNhat).Skip((pageSize - 1) * pageIndex).Take(pageSize).ToList();
+        //    return model;
+        //}
+        public List<SanPham> ListProductsByTypeID(long id)
+        {
+            return db.SanPhams.Where(x => x.maLoaiSanPham == id).ToList();
+        }
+
+        // List sản phẩm mới
+        public List<SanPham> SlideListSanPhamMoi()
+        {
+            return db.SanPhams.OrderByDescending(x => x.sanPhamMoi == true).Take(12).ToList();
+        }
+
+        // List sản phẩm nổi bật
+        public List<SanPham> ListSanPhamNoiBat()
+        {
+            return db.SanPhams.OrderByDescending(x => x.sanPhamNoiBat == true).Take(12).ToList();
+        }
+
         // Hiện danh sách có phân trang
         public IEnumerable<SanPham> ListAllPaging(string searchProducts, int page, int pageSize)
         {
@@ -28,6 +67,7 @@ namespace WebBanTranSua.Models.DAO
 
             return model.OrderByDescending(x => x.ngayTao).ToPagedList(page, pageSize);
         }
+
 
         // Thêm 
         public long insert(SanPham enity)

@@ -14,6 +14,8 @@ namespace WebBanTranSua.Controllers
         {
             ViewBag.Categorys = new LoaiSanPhamDAO().ListTypeProducts();
             ViewBag.Slides = new SlideDAO().ListSlides();
+            ViewBag.SlidesNewProducts = new SanPhamDAO().SlideListSanPhamMoi();
+            ViewBag.HighlightProducts = new SanPhamDAO().ListSanPhamNoiBat();
             return View();
         }
 
